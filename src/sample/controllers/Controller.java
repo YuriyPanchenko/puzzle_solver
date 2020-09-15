@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,6 +20,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.models.Conformity;
+import sample.models.Piece;
 
 import javax.imageio.ImageIO;
 
