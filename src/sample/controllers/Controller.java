@@ -189,18 +189,22 @@ public class Controller {
                 switch (conformity.getSideToChangeInNotSavedPiece()) {
                     case "left": {
                         pieceToSave.setLeftSideFree(false);
+                        conformity.getSavedPiece().setRightSideFree(false);
                         break;
                     }
                     case "top": {
                         pieceToSave.setTopSideFree(false);
+                        conformity.getSavedPiece().setDownSideFree(false);
                         break;
                     }
                     case "right": {
                         pieceToSave.setRightSideFree(false);
+                        conformity.getSavedPiece().setLeftSideFree(false);
                         break;
                     }
                     case "down": {
                         pieceToSave.setDownSideFree(false);
+                        conformity.getSavedPiece().setTopSideFree(false);
                         break;
                     }
                 }
