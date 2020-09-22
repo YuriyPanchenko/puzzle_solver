@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.util.Arrays;
 
 public class Piece {
-    String name;
+    private String name;
     private int size;
 
     private Image image;
@@ -21,10 +21,26 @@ public class Piece {
 
     private int rotation = 0;
 
-    private int xPosition;
-    private int yPosition;
+    private Point point;
 
     public static int min = 0;
+
+    public Piece(Piece piece) {
+        this.name = piece.getName();
+        this.image = piece.getImage();
+        this.size = piece.getSize();
+        this.isLeftSideFree = piece.isLeftSideFree();
+        this.isRightSideFree = piece.isRightSideFree();
+        this.isDownSideFree = piece.isDownSideFree();
+        this.isTopSideFree = piece.isTopSideFree();
+        this.point = piece.getPoint();
+        this.rotation = piece.getRotation();
+
+        this.leftSide = piece.getLeftSide();
+        this.topSide = piece.getTopSide();
+        this.rightSide = piece.getRightSide();
+        this.downSide = piece.getDownSide();
+    }
 
     public Piece(Image image, String name) {
         this.name = name;
@@ -47,6 +63,14 @@ public class Piece {
             downSide[i] = image.getPixelReader().getColor(size - i - 1, size-1);
         }
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getSize() {
@@ -137,38 +161,25 @@ public class Piece {
         this.rotation = rotation;
     }
 
-    public int getxPosition() {
-        return xPosition;
+    public Point getPoint() {
+        return point;
     }
 
-    public void setxPosition(int xPosition) {
-        this.xPosition = xPosition;
-        if(Piece.min > xPosition)
-            Piece.min = xPosition;
-    }
-
-    public int getyPosition() {
-        return yPosition;
-    }
-
-    public void setyPosition(int yPosition) {
-        this.yPosition = yPosition;
-        if(Piece.min > yPosition)
-            Piece.min = yPosition;
+    public void setPoint(Point point) {
+        this.point = point;
     }
 
     @Override
     public String toString() {
-        return "Piece{" +
+        return "\nPiece{" +
                 "name='" + name + '\'' +
                 ", isRightSideFree=" + isRightSideFree +
                 ", isLeftSideFree=" + isLeftSideFree +
                 ", isTopSideFree=" + isTopSideFree +
                 ", isDownSideFree=" + isDownSideFree +
-                ", rotation=" + rotation +
-                ", xPosition=" + xPosition +
-                ", yPosition=" + yPosition +
-                '}' + '\n';
+                ", rotation= " + rotation +
+                ", point=" + point +
+                '}';
     }
 
     public void rotate(int rotateNumber){
