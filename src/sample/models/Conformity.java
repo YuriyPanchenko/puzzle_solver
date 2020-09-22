@@ -1,11 +1,10 @@
 package sample.models;
 
-public class Conformity {
+public class Conformity{
     private int value;
     private Piece piece;
     private Piece savedPiece;
-    private int pieceX;
-    private int pieceY;
+    private Point notSavedPiecePoint;
     private String sideToChangeInNotSavedPiece;
     private String sideToChangeInSavedPiece;
     private int rotation;
@@ -14,12 +13,11 @@ public class Conformity {
         this.value = value;
     }
 
-    public Conformity(int value, Piece piece, Piece savedPiece, int pieceX, int pieceY, String sideToChangeInNotSavedPiece, String sideToChangeInSavedPiece, int rotation) {
+    public Conformity(int value, Piece piece, Piece savedPiece, Point notSavedPiecePoint, String sideToChangeInNotSavedPiece, String sideToChangeInSavedPiece, int rotation) {
         this.value = value;
         this.piece = piece;
         this.savedPiece = savedPiece;
-        this.pieceX = pieceX;
-        this.pieceY = pieceY;
+        this.notSavedPiecePoint = notSavedPiecePoint;
         this.sideToChangeInNotSavedPiece = sideToChangeInNotSavedPiece;
         this.sideToChangeInSavedPiece = sideToChangeInSavedPiece;
         this.rotation = rotation;
@@ -73,29 +71,23 @@ public class Conformity {
         this.piece = piece;
     }
 
-    public int getPieceX() {
-        return pieceX;
+    public Point getNotSavedPiecePoint() {
+        return notSavedPiecePoint;
     }
 
-    public void setPieceX(int pieceX) {
-        this.pieceX = pieceX;
-    }
-
-    public int getPieceY() {
-        return pieceY;
-    }
-
-    public void setPieceY(int pieceY) {
-        this.pieceY = pieceY;
+    public void setNotSavedPiecePoint(Point notSavedPiecePoint) {
+        this.notSavedPiecePoint = notSavedPiecePoint;
     }
 
     @Override
     public String toString() {
-        return "Conformity{" +
+        return "\nConformity{" +
                 "value=" + value +
-                ", piece=" + piece +
-                ", pieceX=" + pieceX +
-                ", pieceY=" + pieceY +
+                ",notSavedPiece=" + piece.getName() +
+                ", savedPiece=" + savedPiece.getName() +
+                ", sideToChangeInNotSavedPiece='" + sideToChangeInNotSavedPiece + '\'' +
+                ", sideToChangeInSavedPiece='" + sideToChangeInSavedPiece + '\'' +
+                ", rotation=" + rotation +
                 '}';
     }
 }
